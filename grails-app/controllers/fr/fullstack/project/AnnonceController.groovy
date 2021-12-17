@@ -1,14 +1,17 @@
 package fr.fullstack.project
 
+import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
+@Secured(value=["hasRole('ROLE_ADMIN')"])
 class AnnonceController {
 
     AnnonceService annonceService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Secured(value=["hasRole('ROLE_CLIENT')"])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond annonceService.list(params), model:[annonceCount: annonceService.count()]
