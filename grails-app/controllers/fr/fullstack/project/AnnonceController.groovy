@@ -11,7 +11,7 @@ class AnnonceController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    @Secured(value=["hasRole('ROLE_CLIENT')"])
+   // @Secured(value=["hasRole('ROLE_CLIENT')"])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond annonceService.list(params), model:[annonceCount: annonceService.count()]

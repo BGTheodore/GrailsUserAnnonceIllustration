@@ -73,6 +73,8 @@ dependencies {
     testImplementation "org.grails:grails-web-testing-support"
 
     implementation 'org.grails.plugins:spring-security-core:4.0.3'
+    implementation "org.grails.plugins:spring-security-rest:3.0.0.RC1"
+
 }
 
 bootRun {

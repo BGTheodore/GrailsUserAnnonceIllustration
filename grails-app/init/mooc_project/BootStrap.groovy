@@ -4,6 +4,7 @@ import fr.fullstack.project.Annonce
 import fr.fullstack.project.Illustration
 import fr.fullstack.project.Role
 import fr.fullstack.project.User
+import fr.fullstack.project.UserRole
 
 class BootStrap {
 
@@ -38,7 +39,7 @@ class BootStrap {
                 UserRole.create(userInstance, clientRole)
 
                 UserRole.withSession{
-                    it.flush()
+                    //it.flush()
                     it.clear()
                 }
         }
